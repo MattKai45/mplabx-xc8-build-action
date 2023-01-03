@@ -4,8 +4,8 @@ This action will build a MPLAB X / XC8 project.
 
 It runs on Linux Ubuntu 20.04 and uses:
 
-* [MPLAB X](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-x-ide) v5.45
-* [XC8](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-xc-compilers) v1.34
+* [MPLAB X](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-x-ide) v6.00
+* [XC8](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-xc-compilers) v2.40
 
 ## Inputs
 
@@ -42,7 +42,7 @@ jobs:
       - name: Download the source code
         uses: actions/checkout@v1
       - name: Build
-        uses: jeandeaual/mplabx-xc8-build-action@v0.2.0
+        uses: mattkai45/mplabx-xc8-build-action@v0.3.0
         with:
           project: firmware.X
           configuration: default
@@ -50,4 +50,5 @@ jobs:
 
 # Acknowledgements
 
+Inspired by <https://github.com/jeandeaual/mplabx-xc8-build-action>.
 Inspired by <https://github.com/velocitek/ghactions-mplabx>.
