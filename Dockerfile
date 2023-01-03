@@ -1,8 +1,5 @@
 FROM ubuntu:20.04
 
-ARG MPLABX_VERSION=6.00
-ARG XC8_VERSION=2.40
-
 # Install the dependencies
 # See https://microchipdeveloper.com/install:mplabx-lin64
 RUN dpkg --add-architecture i386 && \
@@ -13,13 +10,13 @@ RUN dpkg --add-architecture i386 && \
   rm -rf /var/lib/apt/lists/*
 
 # Download and install XC8
-RUN wget -nv -O /tmp/xc8 "https://ww1.microchip.com/downloads/en/DeviceDoc/xc8-v${XC8_VERSION}-full-install-linux-installer.run" && \
+RUN wget -nv -O /tmp/xc8 "https://ww1.microchip.com/downloads/aemDocuments/documents/DEV/ProductDocuments/SoftwareTools/xc8-v2.40-full-install-linux-x64-installer.run" && \
   chmod +x /tmp/xc8 && \
   /tmp/xc8 --mode unattended --unattendedmodeui none --netservername localhost --LicenseType FreeMode --prefix "/opt/microchip/xc8/v${XC8_VERSION}" && \
   rm /tmp/xc8
 
 # Download and install MPLAB X
-RUN wget -nv -O /tmp/mplabx "https://ww1.microchip.com/downloads/en/DeviceDoc/MPLABX-v${MPLABX_VERSION}-linux-installer.tar" &&\
+RUN wget -nv -O /tmp/mplabx "https://www.microchip.com/content/dam/mchp/documents/DEV/ProductDocuments/SoftwareTools/MPLABX-v6.00-linux-installer.tar" &&\
   cd /tmp && \
   tar -xf mplabx && \
   rm mplabx && \
